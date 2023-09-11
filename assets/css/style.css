@@ -12,7 +12,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #ffffff;
-  color: #190202;
+  color: #ffffff;
   position: relative;
   background: transparent;
 }
@@ -20,16 +20,16 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #ce7f00 url("../img/bg.jpg") top right no-repeat;
+  background: #00ce00 url("../img/bg.jpg") top right no-repeat;
   background-size: cover;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 100vh;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  block-size: 100vh;
   z-index: -1;
 }
 
-@media (min-width: 1024px) {
+@media (min-inline-size: 1024px) {
   body::before {
     background-attachment: fixed;
   }
@@ -60,12 +60,22 @@ h6 {
 #header {
   transition: ease-in-out 0.3s;
   position: relative;
-  height: 100vh;
+  block-size: 100vh;
   display: flex;
   align-items: center;
   z-index: 997;
   overflow-y: auto;
 }
+
+.fixed-header {
+    position: fixed;
+    inset-block-start: -100px; /* Altura negativa para esconder o cabeçalho inicialmente */
+    transition: top 0.3s; /* Adicione uma transição suave para suavizar a animação */
+    inline-size: 100%;
+    z-index: 9999; /* Certifique-se de que o cabeçalho esteja acima de outros elementos */
+    background-color: #ffffff00; /* Cor de fundo do cabeçalho */
+}
+
 
 #header * {
   transition: ease-in-out 0.3s;
@@ -82,21 +92,21 @@ h6 {
 
 #header h1 a,
 #header h1 a:hover {
-  color: #000000;
+  color: #ffffff;
   line-height: 1;
   display: inline-block;
 }
 
 #header h2 {
   font-size: 24px;
-  margin-top: 20px;
-  color: rgba(0, 0, 0, 0.8);
+  margin-block-start: 20px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 #header h2 span {
-  color: #221383;
-  border-bottom: 2px solid #ce7f00;
-  padding-bottom: 6px;
+  color: #ce7f00;
+  border-block-end: 2px solid #ce7f00;
+  padding-block-end: 6px;
 }
 
 #header img {
@@ -105,7 +115,7 @@ h6 {
 }
 
 #header .social-links {
-  margin-top: 40px;
+  margin-block-start: 40px;
   display: flex;
 }
 
@@ -114,20 +124,20 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.375);
-  color: #ce7f00;
+  background: rgba(87, 87, 87, 0);
+  color: #cacaca;
   line-height: 1;
-  margin-right: 8px;
+  margin-inline-end: 8px;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  inline-size: 40px;
+  block-size: 40px;
 }
 
 #header .social-links a:hover {
-  background: #e9b562;
+  background: #7c7796;
 }
 
-@media (max-width: 992px) {
+@media (max-inline-size: 992px) {
   #header h1 {
     font-size: 36px;
   }
@@ -138,7 +148,7 @@ h6 {
   }
 
   #header .social-links {
-    margin-top: 15px;
+    margin-block-start: 15px;
   }
 
   #header .container {
@@ -150,12 +160,12 @@ h6 {
 
 /* Header Top */
 #header.header-top {
-  height: 80px;
+  block-size: 80px;
   position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  background: rgba(216, 131, 4, 0.433);
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  background: rgb(63, 62, 61);
 }
 
 #header.header-top .social-links,
@@ -164,13 +174,13 @@ h6 {
 }
 
 #header.header-top h1 {
-  margin-right: auto;
+  margin-inline-end: auto;
   font-size: 36px;
 }
 
 #header.header-top img {
-  max-height: 60px;
-  margin-right: 20px !important;
+  max-block-size: 60px;
+  margin-inline-end: 20px !important;
 }
 
 #header.header-top .container {
@@ -182,9 +192,9 @@ h6 {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-inline-size: 768px) {
   #header.header-top {
-    height: 60px;
+    block-size: 60px;
   }
 
   #header.header-top h1 {
@@ -200,7 +210,7 @@ h6 {
 */
 .navbar {
   padding: 0;
-  margin-top: 35px;
+  margin-block-start: 35px;
 }
 
 .navbar ul {
@@ -216,7 +226,7 @@ h6 {
 }
 
 .navbar li+li {
-  margin-left: 30px;
+  margin-inline-start: 30px;
 }
 
 .navbar a,
@@ -228,7 +238,7 @@ h6 {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color:  rgba(216, 131, 4, 0.433);
+  color:  rgba(255, 255, 255, 0.877);
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -237,19 +247,19 @@ h6 {
 .navbar a:focus i {
   font-size: 12px;
   line-height: 0;
-  margin-left: 5px;
+  margin-inline-start: 5px;
 }
 
 .navbar a:before {
   content: "";
   position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
+  inline-size: 0;
+  block-size: 2px;
+  inset-block-end: -4px;
+  inset-inline-start: 0;
   background-color: #ce7f00;
   visibility: hidden;
-  width: 0px;
+  inline-size: 0px;
   transition: all 0.3s ease-in-out 0s;
 }
 
@@ -257,32 +267,32 @@ h6 {
 .navbar li:hover>a:before,
 .navbar .active:before {
   visibility: visible;
-  width: 25px;
+  inline-size: 25px;
 }
 
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #230d7a;
+  color: #ce7f00;
 }
 
 /**
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #ce7f00;
+  color: #000000;
   font-size: 28px;
   cursor: pointer;
   display: none;
   line-height: 0;
   transition: 0.5s;
   position: fixed;
-  right: 15px;
-  top: 15px;
+  inset-inline-end: 15px;
+  inset-block-start: 15px;
 }
 
-@media (max-width: 991px) {
+@media (max-inline-size: 991px) {
   .mobile-nav-toggle {
     display: block;
   }
@@ -295,29 +305,29 @@ h6 {
 .navbar-mobile {
   position: fixed;
   overflow: hidden;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-inline-start: 0;
+  inset-block-end: 0;
   background: rgba(216, 131, 4, 0.433);
   transition: 0.3s;
   z-index: 999;
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  inset-block-start: 15px;
+  inset-inline-end: 15px;
 }
 
 .navbar-mobile ul {
   display: block;
   position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 45px;
-  left: 15px;
+  inset-block-start: 55px;
+  inset-inline-end: 15px;
+  inset-block-end: 45px;
+  inset-inline-start: 15px;
   padding: 10px 0;
   overflow-y: auto;
   transition: 0.3s;
@@ -344,33 +354,33 @@ h6 {
 section {
   overflow: hidden;
   position: absolute;
-  width: 100%;
-  top: 140px;
-  bottom: 100%;
-  opacity: 0;
+  inline-size: 100%;
+  inset-block-start: 140px;
+  inset-block-end: 100%;
+  opacity: 50%;
   transition: ease-in-out 0.4s;
   z-index: 2;
 }
 
 section.section-show {
-  top: 100px;
-  bottom: auto;
+  inset-block-start: 100px;
+  inset-block-end: auto;
   opacity: 1;
-  padding-bottom: 45px;
+  padding-block-end: 45px;
 }
 
 section .container {
-  background:  rgba(216, 131, 4, 0.433);
+  background:  rgb(63, 62, 61);
   padding: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-inline-size: 768px) {
   section {
-    top: 120px;
+    inset-block-start: 120px;
   }
 
   section.section-show {
-    top: 80px;
+    inset-block-start: 80px;
   }
 }
 
@@ -382,16 +392,16 @@ section .container {
   margin: 0 0 20px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #ce7f00;
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
 }
 
 .section-title h2::after {
   content: "";
-  width: 120px;
-  height: 1px;
+  inline-size: 120px;
+  block-size: 1px;
   display: inline-block;
-  background: #4ceb95;
+  background: #ce7f00;
   margin: 4px 10px;
 }
 
@@ -402,7 +412,7 @@ section .container {
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #000000;
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
@@ -420,24 +430,24 @@ section .container {
 }
 
 .about-me .content ul li {
-  margin-bottom: 20px;
+  margin-block-end: 20px;
   display: flex;
   align-items: center;
 }
 
 .about-me .content ul strong {
-  margin-right: 10px;
+  margin-inline-end: 10px;
 }
 
 .about-me .content ul i {
   font-size: 16px;
-  margin-right: 5px;
-  color: #ce7f00;
+  margin-inline-end: 5px;
+  color: #fd9c00;
   line-height: 0;
 }
 
 .about-me .content p:last-child {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 /*--------------------------------------------------------------
@@ -449,7 +459,7 @@ section .container {
 
 .counts .count-box {
   padding: 30px 30px 25px 30px;
-  width: 100%;
+  inline-size: 100%;
   position: relative;
   text-align: center;
   background: rgba(255, 255, 255, 0.08);
@@ -457,8 +467,8 @@ section .container {
 
 .counts .count-box i {
   position: absolute;
-  top: -25px;
-  left: 50%;
+  inset-block-start: -25px;
+  inset-inline-start: 50%;
   transform: translateX(-50%);
   font-size: 24px;
   background: rgba(255, 255, 255, 0.1);
@@ -486,7 +496,7 @@ section .container {
 # Skills
 --------------------------------------------------------------*/
 .skills .progress {
-  height: 60px;
+  block-size: 60px;
   display: block;
   background: none;
   border-radius: 0;
@@ -499,21 +509,22 @@ section .container {
   display: block;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #fff;
+  color: #ffffff;
 }
 
 .skills .progress .skill .val {
-  float: right;
+  padding: 2%;
+  float: inline-end;
   font-style: normal;
 }
 
 .skills .progress-bar-wrap {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(124, 107, 97, 0.863);
 }
 
 .skills .progress-bar {
-  width: 1px;
-  height: 10px;
+  inline-size: 1px;
+  block-size: 10px;
   transition: 0.9s;
   background-color: #ce7f00;
 }
@@ -531,7 +542,7 @@ section .container {
 
 .interests .icon-box i {
   font-size: 32px;
-  padding-right: 10px;
+  padding-inline-end: 10px;
   line-height: 1;
 }
 
@@ -558,11 +569,11 @@ section .container {
 
 .testimonials .testimonial-item {
   box-sizing: content-box;
-  min-height: 320px;
+  min-block-size: 320px;
 }
 
 .testimonials .testimonial-item .testimonial-img {
-  width: 90px;
+  inline-size: 90px;
   border-radius: 50%;
   margin: -40px 0 0 40px;
   position: relative;
@@ -591,15 +602,15 @@ section .container {
 
 .testimonials .testimonial-item .quote-icon-left {
   display: inline-block;
-  left: -5px;
+  inset-inline-start: -5px;
   position: relative;
 }
 
 .testimonials .testimonial-item .quote-icon-right {
   display: inline-block;
-  right: -5px;
+  inset-inline-end: -5px;
   position: relative;
-  top: 10px;
+  inset-block-start: 10px;
 }
 
 .testimonials .testimonial-item p {
@@ -614,13 +625,13 @@ section .container {
 }
 
 .testimonials .swiper-pagination {
-  margin-top: 20px;
+  margin-block-start: 20px;
   position: relative;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+  inline-size: 12px;
+  block-size: 12px;
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -635,15 +646,15 @@ section .container {
 .resume .resume-title {
   font-size: 26px;
   font-weight: 700;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #000000;
+  margin-block-start: 20px;
+  margin-block-end: 20px;
+  color: #ffffff;
 }
 
 .resume .resume-item {
   padding: 0 0 20px 20px;
-  margin-top: -2px;
-  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  margin-block-start: -2px;
+  border-inline-start: 2px solid rgba(255, 255, 255, 0.2);
   position: relative;
 }
 
@@ -654,7 +665,7 @@ section .container {
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   color: #ce7f00;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .resume .resume-item h5 {
@@ -663,29 +674,29 @@ section .container {
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .resume .resume-item ul {
-  padding-left: 20px;
+  padding-inline-start: 20px;
 }
 
 .resume .resume-item ul li {
-  padding-bottom: 10px;
+  padding-block-end: 10px;
 }
 
 .resume .resume-item:last-child {
-  padding-bottom: 0;
+  padding-block-end: 0;
 }
 
 .resume .resume-item::before {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
+  inline-size: 16px;
+  block-size: 16px;
   border-radius: 50px;
-  left: -9px;
-  top: 0;
+  inset-inline-start: -9px;
+  inset-block-start: 0;
   background: #ce7f00;
   border: 2px solid #ce7f00;
 }
@@ -702,15 +713,15 @@ section .container {
 
 .services .icon-box .icon {
   margin: 0 auto;
-  width: 64px;
-  height: 64px;
+  inline-size: 64px;
+  block-size: 64px;
   background: #ce7f00;
   border-radius: 5px;
   transition: all 0.3s ease-out 0s;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-block-end: 20px;
   transform-style: preserve-3d;
 }
 
@@ -722,10 +733,10 @@ section .container {
 .services .icon-box .icon::before {
   position: absolute;
   content: "";
-  left: -8px;
-  top: -8px;
-  height: 100%;
-  width: 100%;
+  inset-inline-start: -8px;
+  inset-block-start: -8px;
+  block-size: 100%;
+  inline-size: 100%;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 5px;
   transition: all 0.3s ease-out 0s;
@@ -734,7 +745,7 @@ section .container {
 
 .services .icon-box h4 {
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-block-end: 15px;
   font-size: 24px;
 }
 
@@ -745,7 +756,7 @@ section .container {
 .services .icon-box p {
   line-height: 24px;
   font-size: 14px;
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 .services .icon-box:hover {
@@ -774,7 +785,7 @@ section .container {
 # Portfolio
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
-  margin-bottom: 30px;
+  margin-block-end: 30px;
 }
 
 .portfolio #portfolio-flters {
@@ -807,7 +818,7 @@ section .container {
 }
 
 .portfolio #portfolio-flters li:last-child {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 
 .portfolio .portfolio-wrap {
@@ -822,10 +833,10 @@ section .container {
   content: "";
   background: rgba(0, 0, 0, 0.6);
   position: absolute;
-  left: 30px;
-  right: 30px;
-  top: 30px;
-  bottom: 30px;
+  inset-inline-start: 30px;
+  inset-inline-end: 30px;
+  inset-block-start: 30px;
+  inset-block-end: 30px;
   transition: all ease-in-out 0.3s;
   z-index: 2;
   opacity: 0;
@@ -834,10 +845,10 @@ section .container {
 .portfolio .portfolio-wrap .portfolio-info {
   opacity: 0;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
   text-align: center;
   z-index: 3;
   transition: all ease-in-out 0.3s;
@@ -850,13 +861,13 @@ section .container {
 .portfolio .portfolio-wrap .portfolio-info::before {
   display: block;
   content: "";
-  width: 48px;
-  height: 48px;
+  inline-size: 48px;
+  block-size: 48px;
   position: absolute;
-  top: 35px;
-  left: 35px;
-  border-top: 3px solid #fff;
-  border-left: 3px solid #fff;
+  inset-block-start: 35px;
+  inset-inline-start: 35px;
+  border-block-start: 3px solid #fff;
+  border-inline-start: 3px solid #fff;
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
@@ -864,13 +875,13 @@ section .container {
 .portfolio .portfolio-wrap .portfolio-info::after {
   display: block;
   content: "";
-  width: 48px;
-  height: 48px;
+  inline-size: 48px;
+  block-size: 48px;
   position: absolute;
-  bottom: 35px;
-  right: 35px;
-  border-bottom: 3px solid #fff;
-  border-right: 3px solid #fff;
+  inset-block-end: 35px;
+  inset-inline-end: 35px;
+  border-block-end: 3px solid #fff;
+  border-inline-end: 3px solid #fff;
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
@@ -907,10 +918,10 @@ section .container {
 }
 
 .portfolio .portfolio-wrap:hover::before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
   opacity: 1;
 }
 
@@ -919,48 +930,48 @@ section .container {
 }
 
 .portfolio .portfolio-wrap:hover .portfolio-info::before {
-  top: 15px;
-  left: 15px;
+  inset-block-start: 15px;
+  inset-inline-start: 15px;
 }
 
 .portfolio .portfolio-wrap:hover .portfolio-info::after {
-  bottom: 15px;
-  right: 15px;
+  inset-block-end: 15px;
+  inset-inline-end: 15px;
 }
 
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
 .portfolio-details {
-  padding-top: 40px;
+  padding-block-start: 40px;
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  inset-block-end: 0;
   overflow-y: auto;
 }
 
 .portfolio-details .container {
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-block-start: 20px;
+  padding-block-end: 40px;
 }
 
 .portfolio-details .portfolio-title {
   font-size: 26px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-block-end: 20px;
 }
 
 .portfolio-details .portfolio-info {
-  padding-top: 45px;
+  padding-block-start: 45px;
 }
 
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
   font-weight: 400;
-  margin-bottom: 20px;
+  margin-block-end: 20px;
 }
 
 .portfolio-details .portfolio-info ul {
@@ -970,7 +981,7 @@ section .container {
 }
 
 .portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
+  margin-block-start: 10px;
 }
 
 .portfolio-details .portfolio-info p {
@@ -978,20 +989,20 @@ section .container {
   padding: 15px 0 0 0;
 }
 
-@media (max-width: 992px) {
+@media (max-inline-size: 992px) {
   .portfolio-details .portfolio-info {
-    padding-top: 20px;
+    padding-block-start: 20px;
   }
 }
 
 .portfolio-details .swiper-pagination {
-  margin-top: 20px;
+  margin-block-start: 20px;
   position: relative;
 }
 
 .portfolio-details .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+  inline-size: 12px;
+  block-size: 12px;
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -1006,7 +1017,7 @@ section .container {
 .contact .info-box {
   color: #444444;
   padding: 20px;
-  width: 100%;
+  inline-size: 100%;
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -1014,8 +1025,8 @@ section .container {
   font-size: 24px;
   color: #ce7f00;
   border-radius: 50%;
-  padding: 14px;
-  float: left;
+  padding: 4px;
+  float: inline-start;
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -1023,7 +1034,8 @@ section .container {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 700;
-  margin: 10px 0 8px 68px;
+  margin: -6% 0 2% 10%;
+
 }
 
 .contact .info-box p {
@@ -1031,7 +1043,7 @@ section .container {
   color: #ce7f00;
   line-height: 24px;
   font-size: 14px;
-  margin: 0 0 0 68px;
+  margin: 0 0 0 48px;
 }
 
 .contact .info-box .social-links {
@@ -1044,7 +1056,7 @@ section .container {
   display: inline-block;
   color: #ce7f00;
   line-height: 1;
-  margin-right: 12px;
+  margin-inline-end: 12px;
   transition: 0.3s;
 }
 
@@ -1061,13 +1073,13 @@ section .container {
   display: none;
   background: rgba(255, 255, 255, 0.08);
   background: #ce7f00;
-  text-align: left;
+  text-align: start;
   padding: 15px;
   font-weight: 600;
 }
 
 .contact .php-email-form .error-message br+br {
-  margin-top: 25px;
+  margin-block-start: 25px;
 }
 
 .contact .php-email-form .sent-message {
@@ -1090,11 +1102,11 @@ section .container {
   content: "";
   display: inline-block;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  inline-size: 24px;
+  block-size: 24px;
   margin: 0 10px -6px 0;
   border: 3px solid #ce7f00;
-  border-top-color: #eee;
+  border-block-start-color: #eee;
   animation: animate-loading 1s linear infinite;
 }
 
@@ -1162,17 +1174,17 @@ section .container {
 --------------------------------------------------------------*/
 .credits {
   position: fixed;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  inset-inline-end: 0;
+  inset-inline-start: 0;
+  inset-block-end: 0;
   padding: 15px;
-  text-align: right;
+  text-align: end;
   font-size: 13px;
   color: #fff;
   z-index: 999999;
 }
 
-@media (max-width: 992px) {
+@media (max-inline-size: 992px) {
   .credits {
     text-align: center;
     padding: 10px;
