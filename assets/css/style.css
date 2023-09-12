@@ -1,14 +1,20 @@
-/**
-* Template Name: Personal
-* Updated: Aug 30 2023 with Bootstrap v5.3.1
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+/* Estilos para telas menores (por exemplo, smartphones) */
 
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
+@media (max-width: 1000px) {
+  .container{
+    
+    padding-top: 67vh;
+  }
+  a{font-size: 25px;}
+
+  h2{
+    font: size 100px;
+  }
+
+
+  }
+
+
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #ffffff;
@@ -20,7 +26,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #00ce00 url("../img/bg.jpg") top right no-repeat;
+  background: #464646 url("../img/bg.jpg") top right no-repeat;
   background-size: cover;
   inset-inline-start: 0;
   inset-inline-end: 0;
@@ -115,7 +121,7 @@ h6 {
 }
 
 #header .social-links {
-  margin-block-start: 40px;
+  margin-block-start: 10px;
   display: flex;
 }
 
