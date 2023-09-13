@@ -1,16 +1,15 @@
 /* Estilos para telas menores (por exemplo, smartphones) */
 
-@media (max-width: 1000px) {
-  .container{
-    
-    padding-top: 67vh;
+@media (max-width: 800px) {
+  #header{
+   align-items: flex-end;
   }
-  a{font-size: 25px;}
+  a{font-size: 20px;}
 
-  h2{
-    font: size 100px;
+  #header h2 {
+    font-size: 15px;
+
   }
-
 
   }
 
@@ -35,10 +34,15 @@ body::before {
   z-index: -1;
 }
 
-@media (min-inline-size: 1024px) {
-  body::before {
-    background-attachment: fixed;
-  }
+@media (min-width: 1024px) {
+
+   a{font-size: 30px;}
+ 
+   #header{
+     font-size: 40px;
+     align-items:center
+ 
+   }
 }
 
 a {
@@ -68,7 +72,6 @@ h6 {
   position: relative;
   block-size: 100vh;
   display: flex;
-  align-items: center;
   z-index: 997;
   overflow-y: auto;
 }
@@ -104,7 +107,7 @@ h6 {
 }
 
 #header h2 {
-  font-size: 24px;
+  font-size: 15px;
   margin-block-start: 20px;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -191,7 +194,7 @@ h6 {
 
 #header.header-top .container {
   display: flex;
-  align-items: center;
+  
 }
 
 #header.header-top .navbar {
