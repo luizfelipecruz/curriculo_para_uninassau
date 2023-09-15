@@ -239,11 +239,7 @@ h2 {
 h3 {
   font-size: calc(1.3rem + 0.6vw);
 }
-@media (min-width: 1200px) {
-  h3 {
-    font-size: 1.75rem;
-  }
-}
+
 
 h4 {
   font-size: calc(1.275rem + 0.3vw);

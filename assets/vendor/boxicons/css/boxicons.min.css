@@ -6,7 +6,7 @@
     src:url(../fonts/boxicons.eot) format('embedded-opentype'),url(../fonts/boxicons.woff2) format('woff2'),url(../fonts/boxicons.woff) format('woff'),url(../fonts/boxicons.ttf) format('truetype'),url(../fonts/boxicons.svg?#boxicons) format('svg')
 }
 .bx{
-    font-family:boxicons!important;
+    font-family:boxicons;
     font-weight:400;
     font-style:normal;
     font-variant:normal;
@@ -305,32 +305,32 @@
     animation:fade-right 1.5s infinite linear
 }
 .bx-xs{
-    font-size:1rem!important
+    font-size:1rem
 }
 .bx-sm{
-    font-size:1.55rem!important
+    font-size:1.55rem
 }
 .bx-md{
-    font-size:2.25rem!important
+    font-size:2.25rem
 }
 .bx-lg{
-    font-size:3rem!important
+    font-size:3rem
 }
 .bx-fw{
     font-size:1.2857142857em;
     line-height:.8em;
     width:1.2857142857em;
     height:.8em;
-    margin-top:-.2em!important;
+    margin-top:-.2em;
     vertical-align:middle
 }
 .bx-pull-left{
     float:left;
-    margin-right:.3em!important
+    margin-right:.3em
 }
 .bx-pull-right{
     float:right;
-    margin-left:.3em!important
+    margin-left:.3em
 }
 .bx-rotate-90{
     transform:rotate(90deg)
