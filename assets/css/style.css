@@ -7,13 +7,10 @@
   .fixed-header {
     block-size: 175vh;
   }
-  a{font-size: 20px;}
+  a{font-size: 25px;}
 
-  #header h2 {
-    font-size: 15px;
-
-.info-box h3 {
-  font-size:  400px;
+  .contact .info-box h3 {
+  margin-top: 5000px;
 }
 
   h2{
@@ -28,7 +25,7 @@
   }
   
   .contact .info-box h3 {
-    font-size: 200px;
+    font-size: 500px;
     
     font-weight: 700;
   }
@@ -139,11 +136,12 @@ h1,h2,h3,h4,h5,h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  transition: ease-in-out 8.3s;
+  transition: ease-in-out 0.3s;
   transition: ease-in 0.3s;
   position: fixed;
   block-size: 175vh;
   display: flex;
+  align-items: center;
   z-index: 997;
   overflow-y: auto;
 }
@@ -178,7 +176,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #header h2 {
-  font-size: 15px;
+  font-size: 24px;
   margin-block-start: 20px;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -214,7 +212,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #header .social-links a:hover {
-  background: #7c7796;
+  background: #ce7f00;
 }
 
 /* Header Top */
@@ -243,7 +241,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #header.header-top .container {
   display: flex;
-  
+  align-items: center;
 }
 
 #header.header-top .navbar {
@@ -524,8 +522,13 @@ section .container {
   background: none;
   border-radius: 0;
 }
+.skils.container
+{
+padding-top: 110px;
+}
 
-.skills .progress .skill {
+
+.skills .progress .skill { 
   padding: 10px 0;
   margin: 0;
   text-transform: uppercase;
@@ -794,7 +797,7 @@ section .container {
 }
 
 .services .icon-box:hover .icon::before {
-  background: #35e888;
+  background: #ce7f00;
 }
 
 .services .icon-box:hover h4 a,.services .icon-box:hover p {
@@ -933,7 +936,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #63eda3;
+  color: #d86100;
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -1046,6 +1049,7 @@ section .container {
 
 .contact .info-box h3 {
 
+display: flex;
   color: rgba(255, 255, 255, 0.5);
   
 }
@@ -1204,3 +1208,4 @@ section .container {
   .credits a:hover {
     color: #fff;
   }
+
