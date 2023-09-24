@@ -242,6 +242,10 @@
     }
   });
 
+
+
+
+  
   /**
    * Animation on scroll
    */
@@ -254,6 +258,8 @@
     })
   });
 
+
+  
   
     // Função para calcular a idade com base na data de nascimento
     function calculateAge(birthday) {
